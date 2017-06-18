@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2 id="demo1"></h2>
+<div id="demo2"></div>
+<div id="demo3"></div>
+
+<script>
+	function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+	vars[key] = value;
+	});
+	return vars;
+	}
+
+	// Count the number of links in a linked listed created from an array A.  A link of -1 ends the list.
+	//    A = [1, 4, 5, 6, 2, 3, 7, 8, 9, 10, 11, 12, 14, 15,  13, 16, 18, -1, 19, 17, 99] 
+	// index:  0  1  2  3  4  5  6  7  8   9  10  11  12  13   14  15  16  17  18  19  20
+	function llNodeCounting(A) {
+    		var count=1;
+    		var nextIndex=0;
+    
+    		while (A[nextIndex] != -1) {
+        		nextIndex = A[nextIndex];
+        		count++
+        		console.log("A[" + nextIndex + "]=" + A[nextIndex] + ", count=" + count );
+    		}
+    
+    		console.log("count=" + count);
+    		return count;
+	}
+
+	var A = [1, 4, 5, 6, 2, 3, 7, 8, 9, 10, 11, 12, 14, 15,  13, 16, 18, -1, 19, 17, 99];
+	var strDemo1 = "llNodeCounting.html";
+	var strDemo2 = "This page calls a local js function llNodeCounting(A) with<br>Array A=" + A + ". <br> llNodeCounting() traverses the array, using each element as the index to the next element.  <br>An element of -1 ends the list.  <br>llNodeCounting() returns the number of nodes found up to and including the end node.";
+	var arrayNodeCount = llNodeCounting(A);
+	strDemo3 = "arrayNodeCount=" + arrayNodeCount;
+     	document.getElementById("demo1").innerHTML = strDemo1;
+     	document.getElementById("demo2").innerHTML = strDemo2;
+     	document.getElementById("demo3").innerHTML = strDemo3;
+
+</script>
+
+</body>
+</html>
+
+

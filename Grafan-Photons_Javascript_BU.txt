@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo"></div>
+
+<script>
+
+    var app =  "$photonsApp";
+    var appName = app;
+
+    if (app == "photon's overview") {
+       appName = '<h3>' + 
+                            '<a href="http://kibanai:5601/app/kibana#/dashboard/fe44df40-39c0-11e7-a7ab-b1e4d07bad3b" target="_blank">' + "* Photon's All Apps Health/Status Dashboard" + '</a><br>' +
+                            '<a href="http://kibanai:5601/app/kibana#/dashboard/bd23ea90-303f-11e7-8128-e3210f5367de" target="_blank">' + "* Photon's All Apps MetricBeat System Metrics Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/214d0ac0-2c5c-11e7-a4be-2bcda3f3f9cd" target="_blank">' + "* Nginx MetricBeat Activity" + '</a>'
+                             '<br></h3><br>';
+    } else if (app == "portster") {
+       appName = '<h3>' + 
+                            '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Daily-Dashboard" target="_blank">' + "* Portster Daily Dashboard" + '</a><br>' +
+                            '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Alarms-Dashboard" target="_blank">' + "* Photon's Alarms Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/1e6e0aa0-2f65-11e7-9377-a56be64d4995" target="_blank">' + "* Portster MetricBeat Dashboard" + '</a><br><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Traffic:-Portin-Dashboard" target="_blank">' + "* Portster Traffic: Portin Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Traffic:-Portin-Collectd-WIP-Table-Dashboard" target="_blank">' + "* Portster Traffic: Portin Collectd WIP Table Dashboard" + '</a><br><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Traffic:-Portout-Dashboard" target="_blank">' + "* Portster Traffic: Portout Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Traffic:-Portout-Collectd-WIP-Table-Dashboard" target="_blank">' + "* Portster Traffic: Portout Collectd WIP Table Dashboard" + '</a><br><br>' +
+                             ' <a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Traffic:-slb-traffic-Dashboard" target="_blank">' + "* Portster Traffic: slb traffic Dashboard" + '</a><br>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-data-uploads" target="_blank">' + "* Portster data uploads Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/discover/Portster-CNUM-working-QX-numbers-uploads" target="_blank">' + "* Portster CNUM working QX numbers uploads search" + '</a><br><br><br>' + 
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dportster" target="_blank">' + "*Portster HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                            '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Metrics-Hystrix-Dashboard-with-Circuit-Breakers" target="_blank">' + "* Portster Metrics - Hystrix Dashboard with Circuit Breakers" + '</a><br>' +
+                            '<a href="http://kibanai:5601/app/kibana#/dashboard/Portster-Metrics-Vertx-Dashboard" target="_blank">' + "* Portster Metrics - Vertx Dashboard" + '</a><br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/portster/swagger/?url=/portster/v1/docs/swagger.json" target="_blank">' + "* Portster Swagger Doc" + '</a><br>' + 
+                             '<a href="http://nginxi/portster/swagger/?url=/portster/v1/docs/admin_swagger.json" target="_blank">' + "* Portster Admin Swagger Doc" + '</a>' +
+                             '</h3>';
+    } else  if (app == "moniker") {
+       appName = '<h3>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Moniker_Daily_Dashboard" target="_blank">' + "* Moniker Daily Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Moniker-DB-counts" target="_blank">' + "* Moniker DB counts" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Doug-Board" target="_blank">' + "* Doug Board" + '</a><br>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Moniker-data-uploads" target="_blank">' + "* Moniker data uploads" + '</a>' +
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dmoniker" target="_blank">' + "*Moniker HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/moniker/swagger/?url=/moniker/v1/docs/swagger.json" target="_blank">' + "* Moniker Swagger Doc" + '</a><br>' + 
+                             '<h4> <center>Moniker UI: A UI interface to query for Moniker Activity</center></h4><h3>' + 
+                             '<a href="http://vipi/ui-moniker" target="_blank">' + "** Moniker INTG  UI" + '</a><br>' +
+                             '<a href="http://vipc/ui-moniker" target="_blank">' + "** Moniker CERT UI" + '</a><br>' +
+                             '<a href="http://vipp/ui-moniker" target="_blank">' + "** Moniker PROD UI" + '</a>' +
+                             '</h3>';
+    } else if (app == "dumpster") {
+        appName = '<h3>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Dumpster-Daily-Summary-Dashboard" target="_blank">' + "* Dumpster Daily Summary Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Dumpster-SMS-Daily-Dashboard" target="_blank">' + "* Dumpster SMS Daily Dashboard" + '</a><br>' +
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/Dumpster-MEDIA-Daily-Dashboard" target="_blank">' + "* Dumpster MEDIA Daily Dashboard" + '</a><br>' + 
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Ddumpster" target="_blank">' + "*Dumpster HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/dumpster/swagger/?url=/dumpster/v1/docs/swagger.json" target="_blank">' + "* Dumpster Swagger Doc" + '</a><br>' + 
+                             '</h3>';
+    } else if (app == "feedme")  {
+        appName = '<h3>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/FeedMe-API-Dashboard" target="_blank">' + "* Feedme Daily Dashboard" + '</a><br>' +
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dfeedme" target="_blank">' + "* Feedme HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/feedme/swagger/?url=/feedme/v1/docs/swagger.json" target="_blank">' + "* Feedme Swagger Doc" + '</a><br>' + 
+                             '</h3>';
+    } else if (app == "mailster") {
+        appName = '<h3>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/27f36230-3f43-11e7-be02-f315d961872d" target="_blank">' + "* Mailster Daily Dashboard" + '</a><br>' +
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dmailster" target="_blank">' + "* Mailster HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/mailster/swagger/?url=/mailster/v1/docs/swagger.json" target="_blank">' + "* Mailster Swagger Doc" + '</a><br>' + 
+                             '</h3>';
+    } else if (app == "devicester") {
+        appName = '<h3>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/c67179d0-3fdc-11e7-86de-ed1357b63308" target="_blank">' + "* Devicester Daily Dashboard" + '</a><br>' +
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Ddevicester" target="_blank">' + "* Devicester HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/devicester/swagger/?url=/devicester/v1/docs/swagger.json" target="_blank">' + "* Devicester Swagger Doc" + '</a><br>' + 
+                             '</h3>';
+    } else if (app == "sluicester") {
+        appName =  '<h3>' + 
+                             '<a href="http://kibanai:5601/app/kibana#/dashboard/353b7310-3ff7-11e7-8544-57288ba9ebd8" target="_blank">' + "* Sluicester Daily Dashboard" + '</a><br>' +
+                             '<h4> <center>HYSTRIX/VERTX</center></h4><h3>' + 
+                             '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dsluicester" target="_blank">' + "* Sluicester HYSTRIX Cluster" + '</a></br>' +
+                            '<a href="http://hystrixi:8080/hystrix-dashboard/monitor/monitor.html?stream=http%3A%2F%2Flocalhost%3A8080%2Fturbine%2Fturbine.stream?cluster%3Dbatman" target="_blank">' + "* HYSTRIX BATMAN ALL" + ' </a></br>' +
+                             '<h4> <center>Misc</center></h4><h3>' +
+                             '<a href="http://nginxi/sluicester/swagger/?url=/sluicester/v1/docs/swagger.json" target="_blank">' + "* Sluicester Swagger Doc" + '</a><br>' + 
+                             '</h3>';
+    } else {
+        appName = "App is unknown";
+    }
+
+
+    document.getElementById("demo").innerHTML = appName;
+</script>
+
+
+</body>
+</html>
+
+

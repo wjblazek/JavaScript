@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+
+<h2> This page demonstrates the bubbling of alerts from a nested element to it's ancestor elements.</h2>
+<br><br>
+
+<h4> The alert in this 1st example does not bubble up. <br>
+Clicking on the inner most element alerts on it but the alert does not bubble up because <br>there are no alerts in the parent elements.
+</h4>
+<form>This is the top level FORM with no alert onclicking and no bubbling.
+  <div>This is a nested DIV with no alert onclicking and no bubbling.
+    <p onclick="alert('This is a leaf p')">This is a nested Paragraph.  Click here to demo bubbling.</p>
+  </div>
+</form>
+<br><br>
+
+<h4> The alert in this example bubbles up 1 level.  <br>
+Clicking on the inner most element alerts on it, which bubbles up to it's parent element but no further. <br>
+Clicking on the middle element also alerts but does NOT bubble up to the top element.
+</h4>
+<form>This is the top level FORM with no alert onclicking.
+  <div onclick="alert('This is a nested div')">This is a nested DIV. Click here to alert but it does not bubble up. <br>
+
+    <p onclick="alert('This is a leaf p')">This is a nested Paragraph.  Click here to demo bubbling.</p>
+  </div>
+</form>
+<br><br>
+
+<h4> The alert in this example bubbles up to the top level. <br>
+Clicking on the inner most element alerts on it, which bubbles up to it's parent element and then to the top element. <br>
+Clicking on the middle element also alerts and bubbles up to the top element. <br>
+Clicking on the top element alerts on that element only.
+
+</h4>
+<form onclick="alert('This is the top level form')">This is the top level FORM.   Click here to demo bubbling.
+  <div onclick="alert('This is a nested div')">This is a nested DIV.  Click here to demo bubbling.
+    <p onclick="alert('This is a leaf p')">This is a nested Paragraph.  Click here to demo bubbling.</p>
+  </div>
+</form>
+
+</body>
+</html>

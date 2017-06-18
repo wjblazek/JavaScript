@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2 id="demo1"></h2>
+<div id="demo2"></div>
+<div id="demo3"></div>
+
+
+
+<script>
+
+	function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+	vars[key] = value;
+	});
+	return vars;
+	}
+
+
+     // you can write to stdout for debugging purposes, e.g.
+     // console.log('this is a debug message');
+
+     function solution(S) {
+          // write your code in JavaScript (Node.js 6.4.0)
+          var i=0;
+          var longestSentence=0;
+          var sentenceWordCount=0;
+          var longestSentenceWordCount=0;
+          var input = S;
+          console.log("solution(S): S[]=" + input); 
+
+          for (i=0; S[i] != null; i++) {
+              console.log("1: S[" + i + "]=" + S[i] + ", sentenceWordCount=" + sentenceWordCount + ", longestSentenceWordCount=" + longestSentenceWordCount);
+        
+              // delimiting "words" by spaces or end of sentence only, not special chars, etc. 
+              if ((S[i] == " ") || (S[i] == ".") || (S[i] == "?") || (S[i] == "!")){
+                  sentenceWordCount++;
+
+			  // skip this char and go on to the next one.
+                  i++;
+              }
+              console.log("2: S[" + i + "]=" + S[i] + ", sentenceWordCount=" + sentenceWordCount + ", longestSentenceWordCount=" + longestSentenceWordCount);
+              
+              // Do not count extra spaces between words or sentences or 
+		   // periods, question marks or exclamation points as part of a word.
+		   if ((S[i] == " ") || (S[i] == ".") || (S[i] == "?") || (S[i] == "!")) {
+                 console.log("3: Skipping space, ., ? or ! between words:'" + S[i] + "'");
+                 continue;
+	        }
+
+              // delimiting sentences by ".", "?" and "!" only.
+              if ((S[i] == ".") || (S[i] == "?") || (S[i] == "!")) {
+                 if ( sentenceWordCount > longestSentenceWordCount ) {
+                     longestSentenceWordCount = sentenceWordCount;
+                     console.log("longestSentenceWordCount=" + longestSentenceWordCount);
+                     sentenceWordCount = 0;
+                 }
+              }
+              console.log("4: S[" + i + "]=" + S[i] + ", sentenceWordCount=" + sentenceWordCount + ", longestSentenceWordCount=" + longestSentenceWordCount);
+
+          }
+    
+          console.log("longestSentenceWordCount=" + longestSentenceWordCount);
+          return longestSentenceWordCount;
+     }
+
+
+     document.getElementById("demo1").innerHTML = "Got parameter:" + getUrlVars()["photonsApp"];
+     var app =  getUrlVars()["photonsApp"];
+     var appName = app;
+     var i;
+
+     if (app == "app1") {
+       appName = '<h3><a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/SimpleApp1.html" target="_blank">' + "* Link to SimpleApp1" + '</a></h3>';
+     } else if (app == "app2") {
+       appName = '<h3><a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/SimpleApp2.html" target="_blank">' + "* Link to SimpleApp2" + '</a></h3>';
+     } else  if (app == "app3") {
+       appName = '<h3><a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/SimpleApp3.html" target="_blank">' + "* Link to SimpleApp3" + '</a></h3>';
+     } else if (app == "app4") {
+       appName = '<h3><a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/SimpleApp4.html" target="_blank">' + "* Link to SimpleApp4" + '</a></h3>';
+     } else {
+        appName = "App is unknown";
+     }
+
+     for (i=0; i< 10; ++i)
+	   appName = appName + "; i=" + i;
+
+    document.getElementById("demo2").innerHTML = appName;
+
+
+    var sentenceCounting = "<br>solution(S) returned: ";
+    var S = "We test coders.  Try us on it?  Keep trying us on it?";
+    sentenceCounting = sentenceCounting + solution(S);
+
+    document.getElementById("demo3").innerHTML = sentenceCounting;
+
+
+
+</script>
+
+
+</body>
+</html>
+
+

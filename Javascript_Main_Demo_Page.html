@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2 id="title"></h2>
+<div id="intro"></div> <br>
+<div id="demo1"></div> <br>
+<div id="demo2"></div> <br>
+<div id="demo3"></div> <br>
+<div id="demo4"></div> <br>
+
+
+<script>
+     // console.log('this is a debug message');
+     document.getElementById("title").innerHTML = "This is Bill Blazek's Main Javascript Demo site.";
+
+	var intro = "These pages demonstrate basic javascript and html uses.<br>It is based on examples and documentation I have found online, including:";
+     intro = intro + '<ul style="list-style-type:circle">' + 
+			     '<li><a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">' + 'en.wikipedia.org/wiki/Document_Object_Model' + '</a></li>' + 
+			     '<li><a href="https://en.wikipedia.org/wiki/DOM_events" target="_blank">' + 'en.wikipedia.org/wiki/DOM_events' + '</a></li>' + 
+			     '<li><a href="https://www.w3.org/TR/WD-DOM/introduction.html" target="_blank">' + 'www.w3.org/TR/WD-DOM/introduction' + '</a></li>' + 
+			     '<li><a href="https://www.w3.org/TR/DOM-Level-2-Events/events.html" target="_blank">' + 'www.w3.org/TR/DOM-Level-2-Events/events' + '</a></li>' + 
+			     '<li><a href="https://javascript.info"  target="_blank">' + 'javascript.info' + '</a></li>' + 
+			     '<li><a href="https://javascript.info/bubbling-and-capturing" target="_blank">' + 'javascript.info/bubbling-and-capturing' + '</a></li></ul>';
+	intro = intro + "These pages demonstrate some basic javascript operations such as:" + 
+				'<ul style="list-style-type:circle">' + 
+				'<li>' + "Using javascript to write the HTML, including the unordered lists of links above and here." + '</li>' +
+				'<li>' + "Links to other pages of this demo." + '</li>' +
+				'<li>' + "A Page which calls a local function to do some processing and display the results." + '</li>' +
+				'<li>' + "A page which demos using URL options to alter what is displayed on the page." + '</li>' +
+				'<li>' + "Pages which demo other js and html operations." + '</li>' +
+				'</ul>';     
+	document.getElementById("intro").innerHTML = intro;
+     
+     var demo1 = "Here is a link to a page with bubbling examples:  <br> ";
+     demo1 = demo1 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/DOM_Event_Bubbling_example.html" target="_blank">' +
+             "DOM_Event_Bubbling_example" + '</a><br>';
+     document.getElementById("demo1").innerHTML = demo1;
+
+     var demo2 = "Here is a link to a page that calls a javascript function that traverses an array as links in a linked list: <br> ";
+     demo2= demo2 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/llNodeCounting.html" target="_blank">' +
+             "Linked List Node Counting example" + '</a><br>';
+     document.getElementById("demo2").innerHTML = demo2;
+
+     demo3 = "Here are links that demo getting URL options. <br>" + 
+		   "Each link passes an option in the URL to the same html file which uses javascript to display different content and " + 
+		   "a different link based on the option passed.<br> ";
+	demo3 = demo3 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/Javascript_URL_options_demo.html?appNum=app1" target="_blank">' +
+             "Page listing the content and link for App1 based on the URL option, opened in a new tab. " + '</a><br>';
+	demo3 = demo3 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/Javascript_URL_options_demo.html?appNum=app2" target="_blank">' +
+             "Page listing the content and link for App2 based on the URL option, opened in a new tab. " + '</a><br>';
+	demo3 = demo3 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/Javascript_URL_options_demo.html?appNum=app3">' +
+             "Page listing the content and link for App3 based on the URL option, opened in the same tab. " + '</a><br>';
+	demo3 = demo3 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/Javascript_URL_options_demo.html?appNum=app4">' +
+             "Page listing the content and link for App4 based on the URL option, opened in the same tab. " + '</a><br>';
+	demo3 = demo3 + '<a href="file:///C:/Users/Owner/Documents/My%20Software%20Tools/JavaScript/Javascript_URL_options_demo.html?appNum=app5" target="_blank">' +
+             "Handle error for Unknown app listed in the URL option" + '</a><br>';
+
+
+
+	document.getElementById("demo3").innerHTML = demo3;
+
+</script>
+
+
+</body>
+</html>
+
+
